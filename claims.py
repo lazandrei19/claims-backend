@@ -4,7 +4,9 @@ from flask_cors import CORS
 from typing import Dict, List
 from game.Game import Game, Player
 
-app = Flask(__name__)
+app = Flask(__name__, 
+            static_url_path='', 
+            static_folder='dist',)
 app.config['SECRET_KEY'] = 'secret!'
 
 socketio = SocketIO(app, cors_allowed_origins="*", ping_timeout=5, ping_interval=1)
